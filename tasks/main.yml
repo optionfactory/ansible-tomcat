@@ -58,7 +58,7 @@
     path: '{{ keystore_path }}'
   register: tom_truststore
 - name: Create keystore (only first time)
-  shell: keytool -genkey -alias tomcat -dname "{{ distinguished_name }}" -keyalg RSA -keystore {{ keystore_path }} -storepass {{ storepass }} -keypass {{ keypass }} -validity {{ valDays }}}}
+  shell: 'keytool -genkey -alias tomcat -dname "{{ distinguished_name }}" -keyalg RSA -keystore {{ keystore_path }} -storepass {{ storepass }} -keypass {{ keypass }} -validity {{ valDays }}'
   when: not tom_truststore.stat.exists
 - name: Set keystore permission (only first time)
   file:
