@@ -95,6 +95,7 @@
     src: '{{ service_binary.src }}'
     dest:  '{{ service_binary.dest_path }}/ROOT.war'
     checksum: yes
+    use_ssh_args: yes
 - name: set war permission
   file:
     path: '{{ service_binary.dest_path }}/ROOT.war'
